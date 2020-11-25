@@ -15,7 +15,7 @@ Create a folder `build` and put your `private-build-plans.toml` file inside. You
 Now, go back to the parent directory and run:
 
 ```bash
-docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build avivace/iosevka_build
+docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build avivace/iosevka-build
 ```
 
 It will pull the container image from Docker Hub and run the font build for you. Your built font files are available in the `build/dist` folder.
