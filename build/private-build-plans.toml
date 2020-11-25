@@ -1,0 +1,44 @@
+[buildPlans.iosevka-av01]
+family = "Iosevka-AV01"
+spacing = "fixed"
+serifs = "sans"
+
+[buildPlans.iosevka-av01.variants.design]
+turn-v = "curly"
+capital-g = "toothless"
+capital-i = "short-serifed"
+capital-j = "serifed"
+percent = "rings-connected"
+lig-ltgteq = "slanted"
+dollar = "open"
+at = "threefold"
+ampersand = "upper-open"
+number-sign = "upright"
+brace = "straight"
+caret = "low"
+asterisk = "hexlow"
+tilde = "low"
+
+  [buildPlans.iosevka-av01.slopes]
+  upright = "normal"
+  italic = "italic"
+
+[buildPlans.iosevka-av01.weights.light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.iosevka-av01.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-av01.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.iosevka-av01.weights.semibold]
+shape = 600
+menu = 600
+css = 600
