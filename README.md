@@ -12,7 +12,7 @@ This repository provides an easy (and headless) way to build your own version of
 git clone https://github.com/avivace/fonts-iosevka.git
 ``` 
 
-2. If you want, prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer). Replace your `private-build-plans.toml` in the `build` folder with yours.
+2. If you want, prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer). Replace the provided `private-build-plans.toml` in the `build` folder with yours.
 
 3. Build and run the Docker container
 
@@ -28,7 +28,7 @@ docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build iosevka_build
 
 ## Install
 
-Copy the generated folders `~/.local/share/fonts` and run `fc-cache`.
+Copy the generated folders in `~/.local/share/fonts` and run `fc-cache`.
 
 ```bash
 cp -r build/dist/* ~/.local/share/fonts/
