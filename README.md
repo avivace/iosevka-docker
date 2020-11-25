@@ -18,6 +18,8 @@ Now, go back to the parent directory and run:
 docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build avivace/iosevka_build
 ```
 
+It will pull the container image from Docker Hub and run the font build for you. Your built font files are available in the `build/dist` folder.
+
 If you want to build the docker image yourself, keep reading.
 
 ## Build
