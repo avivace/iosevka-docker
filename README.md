@@ -1,8 +1,24 @@
 # <img src=".meta/header.png" alt="iosevka-docker" width="400px"/>
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/avivace/ror2server?style=flat-square)](https://hub.docker.com/r/avivace/iosevka-build)
+
 > Iosevka custom building with Docker and debian packages.
 
 This repository provides an easy (and headless) way to build your own version of the Iosevka typeface without having to worry about dependencies and build environments.
+
+## Quickstart
+
+Prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer).
+
+Create a folder `build` and put your `private-build-plans.toml` file inside. You can find an example [here](https://github.com/avivace/fonts-iosevka/blob/master/build/private-build-plans.toml).
+
+Now, go back to the parent directory and run:
+
+```bash
+docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build avivace/iosevka_build
+```
+
+If you want to build the docker image yourself, keep reading.
 
 ## Build
 
@@ -12,7 +28,7 @@ This repository provides an easy (and headless) way to build your own version of
 git clone https://github.com/avivace/fonts-iosevka.git
 ``` 
 
-2. If you want, prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer). Replace the provided `private-build-plans.toml` in the `build` folder with yours.
+2. If you want, replace the provided `private-build-plans.toml` in the `build` folder with yours.
 
 3. Build and run the Docker container
 
