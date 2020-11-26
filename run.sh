@@ -30,23 +30,27 @@ file "v${FONT_VERSION}.tar.gz" | grep 'gzip compressed data' > /dev/null
 tar -xf v${FONT_VERSION}.tar.gz
 cd *Iosevka-*
 
-# Copy the build plan
-cp /build/private-build-plans.toml .
-
-# Build!
-echo "Commencing build of version ${FONT_VERSION}..."
+echo "Building version ${FONT_VERSION}"
 npm install
 
-if [ $# -eq 0 ]; then
-    # Get the name of the first build plan when the user does not provide
-    # custom build arguments (automatic mode)
-    PLAN_NAME=$(grep -Po -m 1 '(?<=buildPlans.)[^\]]*' private-build-plans.toml)
-
-    npm run build -- contents::$PLAN_NAME
+if ! test -f "/build/private-build-plans.toml"; then
+	echo "No private-build-plans.toml found. Proceeding with the standard build"
+	npm run build -- contents::iosevka
 else
-    # User knows what they are doing and provides custom build arguments
-    # (manual mode)
-    npm run build -- "$@"
+	cp /build/private-build-plans.toml .
+	echo "Using the provided build-plans file.."
+	# No arguments passed
+	if [ $# -eq 0 ]; then
+    		# Get the name of the first build plan when the user does not provide
+    		# custom build arguments (automatic mode)
+    		PLAN_NAME=$(grep -Po -m 1 '(?<=buildPlans.)[^\]]*' private-build-plans.toml)
+
+    		npm run build -- contents::$PLAN_NAME
+	else
+    		# User knows what they are doing and provided custom build arguments
+    		# (manual mode)
+    		npm run build -- "$@"
+	fi
 fi
 
 # Copy the dist folder back to the mounted volume
