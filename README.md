@@ -29,7 +29,21 @@ To specify a version to build, just add `-e FONT_VERSION=` to the Docker command
 ```
 docker run -e FONT_VERSION=3.7.1 -it -v $(pwd):/build avivace/iosevka-build
 ```
-Releases can be found [here](https://github.com/be5invis/Iosevka/releases).
+Releases can be found [here](https://github.com/be5invis/Iosevka/releases). Only font versions 3.0.0 or higher are supported.
+
+### Build arguments
+
+You can pass any of the optional build options described in [Customized Build](https://github.com/be5invis/Iosevka#customized-build).
+
+```
+docker run -it -v $(pwd):/build avivace/iosevka-build [optional build args]
+```
+
+ E.g. to only build TTF files:
+
+```bash
+docker run -it -v $(pwd):/build iosevka_build ttf::iosevka-custom
+```
 
 ## Build the Docker image yourself
 
