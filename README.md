@@ -2,25 +2,36 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/avivace/iosevka-build?style=flat-square)](https://hub.docker.com/r/avivace/iosevka-build)
 
-> Iosevka custom building with Docker and debian packages.
-
-This repository provides an easy (and headless) way to build your own version of the Iosevka typeface without having to worry about dependencies and build environments.
+Docker containers to build your own (or standard) version of the [Iosevka](https://github.com/be5invis/Iosevka) typeface without worrying about dependencies and build environments.
 
 ## Quickstart
 
-Prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer).
-
-Go to the directory where your `private-build-plans.toml` is and run
-
 ```bash
-docker run -e FONT_VERSION=3.7.1 -it -v $(pwd):/build avivace/iosevka-build
+docker run -it -v $(pwd):/build avivace/iosevka-build
 ```
 
-It will pull the container image from Docker Hub and run the font build for you, following your configuration. Your built font files will be available in the `dist/` folder.
+Will build the [latest](https://github.com/be5invis/Iosevka/releases/tag/v4.0.0) released version of Iosevka with the default configuration.
 
-If you want to build the docker image yourself, keep reading.
+Your built font files will be available in the `dist/` folder.
 
-## Build
+### Custom build configuration
+
+To customize your build, just launch the docker command from the directory where your `private-build-plans.toml` is placed.
+
+You can prepare your configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer).
+
+> Be aware of the breaking changes introduced with 4.0.0 i.e. configurations working with `3.7.1` are not guaranteed to work with `4.0.0`.
+
+### Version
+
+To specify a version to build, just add `-e FONT_VERSION=` to the Docker command. E.g. to build version `3.7.1`:
+
+```
+docker run -e FONT_VERSION=3.7.1 -it -v $(pwd):/build avivace/iosevka-build
+```
+Releases can be found [here](https://github.com/be5invis/Iosevka/releases).
+
+## Build the Docker image yourself
 
 1. Be sure to have Docker installed. Clone this repository.
 
