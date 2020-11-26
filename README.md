@@ -10,15 +10,13 @@ This repository provides an easy (and headless) way to build your own version of
 
 Prepare your custom build configuration following the [Customized Build](https://github.com/be5invis/Iosevka#customized-build) documentation or use the [Iosevka Build Customizer](https://typeof.net/Iosevka/customizer).
 
-Create a folder `build` and put your `private-build-plans.toml` file inside. You can find an example [here](https://github.com/avivace/fonts-iosevka/blob/master/build/private-build-plans.toml).
-
-Now, go back to the parent directory and run:
+Go to the directory where your `private-build-plans.toml` is and run
 
 ```bash
-docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build avivace/iosevka-build
+docker run -e FONT_VERSION=3.7.1 -it -v $(pwd):/build avivace/iosevka-build
 ```
 
-It will pull the container image from Docker Hub and run the font build for you. Your built font files are available in the `build/dist` folder.
+It will pull the container image from Docker Hub and run the font build for you, following your configuration. Your built font files will be available in the `dist/` folder.
 
 If you want to build the docker image yourself, keep reading.
 
@@ -30,7 +28,7 @@ If you want to build the docker image yourself, keep reading.
 git clone https://github.com/avivace/fonts-iosevka.git
 ``` 
 
-2. If you want, replace the provided `private-build-plans.toml` in the `build` folder with yours.
+2. If you want, replace the provided `private-build-plans.toml` file with yours.
 
 3. Build and run the Docker container
 
@@ -42,7 +40,7 @@ docker build -t iosevka_build . -f Dockerfile
 docker run -e FONT_VERSION=3.7.1 -it -v $(pwd)/build:/build iosevka_build
 ```
 
-4. Done! Your built font files are available in the `build/dist` folder.
+4. Done! Your built font files are available in the `dist` folder.
 
 ## Install
 
