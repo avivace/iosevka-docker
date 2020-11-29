@@ -42,7 +42,7 @@ docker run -it -v $(pwd):/build avivace/iosevka-build [optional build args]
  E.g. to only build TTF files:
 
 ```bash
-docker run -it -v $(pwd):/build iosevka_build ttf::iosevka-custom
+docker run -it -v $(pwd):/build avivace/iosevka-build ttf::iosevka-custom
 ```
 
 ## Build the Docker image yourself
