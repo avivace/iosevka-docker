@@ -1,4 +1,4 @@
-# <img src=".meta/header.png" alt="iosevka-docker" width="400px"/>
+# iosevka-docker
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/avivace/iosevka-build?style=flat-square)](https://hub.docker.com/r/avivace/iosevka-build)
 
