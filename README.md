@@ -6,9 +6,22 @@ Docker containers to build your own (or standard) version of the [Iosevka](https
 
 ## Quickstart
 
+Linux:
 ```bash
 docker run -it -v $(pwd):/build avivace/iosevka-build
 ```
+
+Windows (Command Prompt)
+```bash
+docker run -it -v %cd%:/build avivace/iosevka-build
+```
+
+Windows (PowerShell)
+```bash
+docker run -it -v ${PWD}:/build avivace/iosevka-build
+```
+
+_For the rest of this document, replace `$(pwd)` with either `%cd%` or `${PWD}` based on your environment_
 
 Will build the [latest](https://github.com/be5invis/Iosevka/releases/tag/v4.0.0) released version of Iosevka with the default configuration.
 
