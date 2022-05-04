@@ -19,7 +19,7 @@ if [[ -f "/build/$BUILD_FILE" ]]; then
     if [[ -z $1 ]]; then
         # Get the name of the first build plan when the user does not provide
         # custom build arguments (automatic mode)
-        PLAN_NAME=$(grep -Po -m 1 '(?<=buildPlans.)[^\]]*' $BUILD_FILE)
+        PLAN_NAME=$(grep -Po -m 1 '(?<=buildPlans.)[^\]]*' /build/$BUILD_FILE)
         BUILD_PARAM="contents::$PLAN_NAME"
     else
         # User knows what they are doing and provided custom build arguments
