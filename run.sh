@@ -28,10 +28,6 @@ if [[ -f "/build/$BUILD_FILE" ]]; then
     fi
 else
     echo "Custom build-plans file not found, using the default one"
-    if [[ -n $1 ]]; then
-        echo -e "\nError: Custom build plan '$1' requested, but custom '$BUILD_FILE' file not found"
-        exit 1
-    fi
 fi
 
 echo "Using build plan: $BUILD_PARAM"
