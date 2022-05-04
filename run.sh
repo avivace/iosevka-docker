@@ -61,7 +61,7 @@ file "v${FONT_VERSION}.tar.gz" | grep 'gzip compressed data' > /dev/null
 tar -xf "v${FONT_VERSION}.tar.gz"
 cd ./*Iosevka-*
 
-if [[ -n $CUSTOM_BUILD_FILE ]]; then
+if [ "$CUSTOM_BUILD_FILE" = true ]; then
     cp "/build/$BUILD_FILE" .
 fi
 
