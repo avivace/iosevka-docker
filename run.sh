@@ -4,7 +4,7 @@
 set -e
 
 # Create temporary build directory
-mkdir /tmp/build
+mkdir -p /tmp/build
 cd /tmp/build
 
 BUILD_FILE="private-build-plans.toml"
@@ -35,8 +35,9 @@ echo "Using build plan: $BUILD_PARAM"
 # Find the latest font version if the font version environment variable is not
 # set. The `-n` operator checks if the length of the string is nonzero.
 if [[ -z "$FONT_VERSION" ]]; then
-    FONT_VERSION=$(curl -s -L https://github.com/be5invis/Iosevka/releases/latest \
-        | grep -Po -m 1 '(?<=tag/v)[0-9.]*')
+    FONT_VERSION=$(curl 'https://api.github.com/repos/be5invis/Iosevka/releases?per_page=1' \
+	| jq -r '.[0].tag_name' \
+	| grep -oP '(?<=^v)([0-9]+\.)*[0-9]+$' )
 fi
 
 echo "Using font version: ${FONT_VERSION}"
