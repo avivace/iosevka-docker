@@ -16,6 +16,7 @@ ARG NODE_VER=14
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         build-essential \
+	jq \
         file \
         curl \
         ca-certificates \
